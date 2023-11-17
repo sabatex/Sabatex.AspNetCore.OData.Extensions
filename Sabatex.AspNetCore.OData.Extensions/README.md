@@ -2,16 +2,29 @@
 
 ## Change enum routing from symbolic to numeric
 
-before
+```C#
+public enum ObjectState
+{
+    New=1,
+    Old=2,
+    Uknown=3
+}
+```
 
+### before
+
+```C#
+$filter=ObjectState eq 'New'
 ```
-$filter=State eq 'New'
+
+### after
+
+```C#
+$filter=ObjectState eq 1
 ```
-after 
-```
-$filter=State eq 1
-```
-### Code sample
+
+### Code sample create EdmModel
+
 ```C#
 using Sabatex.AspNetCore.OData.Extensions;
 
